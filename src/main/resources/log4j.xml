@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.yasasitango.www">
+	<logger name="com.classB.test">
 		<level value="info" />
 	</logger>
 	
