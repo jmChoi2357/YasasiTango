@@ -36,4 +36,8 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/wordList", method = RequestMethod.GET)
+	public String wordList() {
+		return "wordList";
+	}
 }
