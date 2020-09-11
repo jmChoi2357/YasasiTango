@@ -1,4 +1,4 @@
-package com.yasasitango.www;
+package com.classB.test;
 
 import java.text.DateFormat;
 import java.util.Date;
