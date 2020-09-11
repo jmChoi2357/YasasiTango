@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.classB.test" />
+	<context:component-scan base-package="com.yasasitango.www" />
 	
 	
 	
