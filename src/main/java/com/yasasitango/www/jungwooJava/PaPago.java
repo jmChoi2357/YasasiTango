@@ -9,13 +9,14 @@ import java.net.URLEncoder;
 
 public class PaPago {
 	
-	public String KoToJa(String original_str){
+	public String Trans(String original_str, String code){
 		String clientId = "qznWAlLJuFjI8U0VTCKO";
 	    //애플리케이션 클라이언트 시크릿값";
 	    String clientSecret = "tvVBgjf1hO";
 	    
 	    String resultString ="";
 	    try {
+	    	String postParams = null;
 	        //original_str 값이 우리가 변환할 값
 	        String text = URLEncoder.encode(original_str, "UTF-8");
 	        
@@ -27,7 +28,11 @@ public class PaPago {
 	        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 	        // post request
 	        /* 번역 언어 변경용 */
-	        String postParams = "source=ko&target=ja&text=" + text;
+	        if(code.equals("kr")) {
+	        	postParams = "source=ko&target=ja&text=" + text;
+	        } else if(code.equals("jp")) {
+	        	postParams = "source=ja&target=ko&text=" + text;
+	        }
 	        con.setDoOutput(true);
 	        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
 	        wr.writeBytes(postParams);

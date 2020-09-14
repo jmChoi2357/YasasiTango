@@ -18,14 +18,14 @@
     <script>
         /* 파파고 변역용  */
         function papa(){
-    	    var test = {"original_str": $("#send_text").val()};
+    	    var test = {"original_str": $("#send_text").val(),
+    	    	        "code": $("#selectLang").val()};
         	$.ajax({
     		    type: "POST",
     		    url: "/nmtReturnRseult",
     		    data: test, //json을 보내는 방법
     		    success: function (data) { //서블렛을 통한 결과 값을 받을 수 있습니다.
     		    console.log(data);
-    		    alert(data);
     		    //결과값을 textarea에 넣기 위해서
     		    var resulut_obj = JSON.parse(data);
     		    $("#result_text").val(resulut_obj.message.result.translatedText);
@@ -36,6 +36,35 @@
     		    }
     		    });
        }// papa end
+
+       /* 한글 검색인지 일본어 검색인지 판별 */
+       function changeLang(){
+    	   if($("#langCode").text() == "한국어 -> 일본어"){
+    		   $("#langCode").text("일본어 -> 한국어");
+    		   $("#selectLang").val("jp");
+           }
+
+    	   else if($("#langCode").text() == "일본어 -> 한국어"){
+    		   $("#langCode").text("한국어 -> 일본어");
+    		   $("#selectLang").val("kr");
+           }
+           alert($("#selectLang").val());
+       }
+
+       function text_to_speech(){
+       	var test = {"voice": $("#result_text").val()};
+       	$.ajax({
+       		type: "POST",
+       		url: "/text_to_speech",
+       		data: test, //json을 보내는 방법
+       		success: function (data) { 
+       		},
+       		error: function (e) {
+       		alert('실패했습니다.');
+       		console.log(e);
+       		}
+       		});
+       }
     </script>
 <meta charset="UTF-8">
 <title>번역 페이지</title>
@@ -46,17 +75,22 @@
 <hr> <br><br>
     <table>
         <tr>
-            <th colspan="3"><textarea rows="15" cols="80" id="send_text">검색 에이리어</textarea></th>
-            <th colspan="3"><textarea rows="15" cols="80" id="result_text">결과 에이리어k</textarea></th>
+            <th colspan="2"><h2 id="langCode">한국어 -> 일본어</h2></th>
+            <th align="right" onclick="changeLang();"><button>변경</button></th>
+            <th colspan="2"></th>
+            <th align="right" onclick="text_to_speech();"><button>여기다 스피커 아이콘 넣을거</button></th>
+        </tr>
+        <tr>
+            <th colspan="3"><textarea rows="15" cols="80" id="send_text" placeholder="번역 문장 입력"></textarea></th>
+            <th colspan="3"><textarea rows="15" cols="80" id="result_text" placeholder="번역 출력"  readonly></textarea></th>
         </tr>
         <tr>
             <td><button>이미지 검색</button><button>음성검색</button></td>
             <td></td>
             <td align="right"><button onclick="papa();">번역하기</button></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
     </table>
+    <input type="hidden" id="selectLang" value="kr">
 </body>
 </html>
