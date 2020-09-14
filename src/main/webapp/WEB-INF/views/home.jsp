@@ -2,12 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page session="false" %>
+
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset = "utf-8">
 <title>main</title>	
 	<script type="text/javascript">
+
 
 				function formCheck(){
 					var member_id = document.getElementById('member_id').value;
@@ -125,6 +128,9 @@
 		<input type="submit" value="나의단어장"> -> 단어장 페이지로 이동합니다.
 	</br>
 	
-</body>	
-</html>
+
+<a href="/JungWooPage">이동</a>
+</body>
+</html>s
+
 
