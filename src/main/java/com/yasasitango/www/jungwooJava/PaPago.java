@@ -26,6 +26,7 @@ public class PaPago {
 	        con.setRequestProperty("X-Naver-Client-Id", clientId);
 	        con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 	        // post request
+	        /* 번역 언어 변경용 */
 	        String postParams = "source=ko&target=ja&text=" + text;
 	        con.setDoOutput(true);
 	        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
