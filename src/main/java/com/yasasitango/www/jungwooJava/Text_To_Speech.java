@@ -27,8 +27,12 @@ import javax.sound.sampled.SourceDataLine;
 public class Text_To_Speech {
 
 /** Demonstrates using the Text-to-Speech API. */
-public void speech(String say) throws Exception {
-	
+public void speech(String say, String code) throws Exception {
+         String langanguage = "ja-JP"; 	
+	     if(code.equals("jp"))
+	    	 langanguage = "ko-KR";
+	     else
+	    	 langanguage = "ja-JP";
 		 // Instantiates a client
 		 try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
 		   // Set the text input to be synthesized
@@ -38,7 +42,7 @@ public void speech(String say) throws Exception {
 		   // ("neutral")
 		   VoiceSelectionParams voice =
 		       VoiceSelectionParams.newBuilder()
-		           .setLanguageCode("ja-JP")
+		           .setLanguageCode(langanguage)
 		           .setSsmlGender(SsmlVoiceGender.NEUTRAL)
 		           .build();
 

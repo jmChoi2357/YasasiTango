@@ -48,11 +48,11 @@
     		   $("#langCode").text("한국어 -> 일본어");
     		   $("#selectLang").val("kr");
            }
-           alert($("#selectLang").val());
        }
 
        function text_to_speech(){
-       	var test = {"voice": $("#result_text").val()};
+       	var test = {"voice": $("#result_text").val(),
+       			     "code": $("#selectLang").val()};
        	$.ajax({
        		type: "POST",
        		url: "/text_to_speech",
@@ -65,27 +65,48 @@
        		}
        		});
        }
+
+       function speech_to_text(){
+    	var test = {"code": $("#selectLang").val()};
+       	$.ajax({
+       		type: "POST",
+       		data: test,
+       		url: "/speech_to_text",	
+       		success: function (data) { 
+       		$("#send_text").val(data);
+       		},
+       		error: function (e) {
+       		alert('실패했습니다.');
+       		console.log(e);
+       		}
+
+           });
+       }
     </script>
 <meta charset="UTF-8">
 <title>번역 페이지</title>
 </head>
 <body>
 <h1 class="top">YASHSHITANGO</h1>
-
 <hr> <br><br>
     <table>
         <tr>
             <th colspan="2"><h2 id="langCode">한국어 -> 일본어</h2></th>
-            <th align="right" onclick="changeLang();"><button>변경</button></th>
-            <th colspan="2"></th>
-            <th align="right" onclick="text_to_speech();"><button>여기다 스피커 아이콘 넣을거</button></th>
+            <th align="right">
+                <button onclick="speech_to_text();"><img width="40" height="40"  src="/resources/Image/misc.png"></button>
+                <button><img width="40" height="40"  src="/resources/Image/change.png"></button>
+            </th>
+            <th></th>
+            <th align="right" onclick="text_to_speech();"><button class="img-button"><img width="40" height="40"  src="/resources/Image/voice.png"></button></th>
         </tr>
         <tr>
             <th colspan="3"><textarea rows="15" cols="80" id="send_text" placeholder="번역 문장 입력"></textarea></th>
             <th colspan="3"><textarea rows="15" cols="80" id="result_text" placeholder="번역 출력"  readonly></textarea></th>
         </tr>
         <tr>
-            <td><button>이미지 검색</button><button>음성검색</button></td>
+            <td>
+                <input type="file" value="이미지 검색" title="이미지">
+            </td>
             <td></td>
             <td align="right"><button onclick="papa();">번역하기</button></td>
             <td colspan="3"></td>
@@ -94,3 +115,4 @@
     <input type="hidden" id="selectLang" value="kr">
 </body>
 </html>
+
