@@ -1,12 +1,11 @@
 package com.yasasitango.www.controller;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
->>>>>>> Jungwoo
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

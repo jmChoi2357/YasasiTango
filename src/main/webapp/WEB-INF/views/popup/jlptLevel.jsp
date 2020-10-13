@@ -9,7 +9,7 @@
 <script type="text/javascript">
 
 	function level(jlpt){
-		$(opener.document).find("#searchWord").val(jlpt);	
+		$(opener.document).find("#searchWord").val(jlpt); /* opener는 현재 창 이전의 창을 이미한다.  */
 		window.close();
 	}
 
