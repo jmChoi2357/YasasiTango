@@ -1,12 +1,16 @@
 package com.yasasitango.www.controller;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+
+>>>>>>> 8c4769a442dafe93899a894a59b40d64fef7754d
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
