@@ -106,7 +106,7 @@
 		ID : <input type = "text" autofocus name="member_id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
 		PW : <input type = "password" autofocus name="member_pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
 		<input type="submit" value="로그인">
-		<input type="submit" value="회원가입">
+		<button onclick="location.href='/member/joinForm'">회원가입</button>
 		</form>
 	</h2>
 	
