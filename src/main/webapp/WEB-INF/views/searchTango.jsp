@@ -10,13 +10,10 @@
         var lang = document.getElementById('lang').value;
          var check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
          if(check.test(lang)){
-            alert('한글을 포함하고 있습니다.');
             document.getElementById('langCheck').value = "ko";
          }else{
-            alert('한글을 포함하고 있지 않습니다.');
             document.getElementById('langCheck').value = "jp";
          }
-         alert(document.getElementById('langCheck').value);
          return true;
     }
 </script>
