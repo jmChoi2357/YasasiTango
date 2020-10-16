@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yasashitango.www.mapper.TangoMapper">
+
+<select id="tangoResultKO" parameterType="String" resultType="com.yasasitango.www.vo.TangoVO">
+    SELECT 
+        word_level,
+        hiragana,
+        kanji,
+        korean,
+        example,
+        example_korean
+    FROM yasashi_tango
+    WHERE korean = #{korean}
+
+</select>
+
+</mapper>

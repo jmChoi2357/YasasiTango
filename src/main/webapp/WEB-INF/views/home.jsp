@@ -110,6 +110,11 @@
 		</form>
 	</h2>
 	
+	<form action="/searchTango">
+	    <input type = "text">
+	    <input type = "submit" value="검색 페이지 이동">
+	</form>
+	
 	<fileset>
 		<legend><h2> JLPT 등급별 퀴즈풀기 </h2></legend>
 		<h3>

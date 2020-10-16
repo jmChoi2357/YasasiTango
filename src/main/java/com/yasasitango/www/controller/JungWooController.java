@@ -3,10 +3,9 @@ package com.yasasitango.www.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,13 +14,34 @@ import com.yasasitango.www.jungwooJava.FindTextToImage;
 import com.yasasitango.www.jungwooJava.PaPago;
 import com.yasasitango.www.jungwooJava.Speech_To_Text;
 import com.yasasitango.www.jungwooJava.Text_To_Speech;
+import com.yasasitango.www.service.TangoService;
+import com.yasasitango.www.vo.TangoVO;
 
 @Controller
 public class JungWooController {
+	@Autowired
+	TangoService service;
 
 	@RequestMapping(value = "/JungWooPage", method = RequestMethod.GET)
 	public String JungWoo() {
 		return "JungWooPage";
+	}
+	
+	@RequestMapping(value = "/searchTango", method = RequestMethod.GET)
+	public String searchTango() {
+		return "searchTango";
+	}
+	
+	@RequestMapping(value = "/searchResult", method = RequestMethod.GET)
+	public String searchResult(String lang, String langCheck, Model model) {
+		System.out.println("텍스트:" + lang);
+		System.out.println("언어:" + langCheck);
+		TangoVO tango = new TangoVO();
+		String korean = lang;
+		tango = service.tangoResultKO(korean);
+		System.out.println(tango);
+		model.addAttribute("tango", tango);	
+		return "searchResult";
 	}
 	
 	@ResponseBody
