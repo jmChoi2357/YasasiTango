@@ -36,6 +36,7 @@
             <h1 style="display:inline;">[${tango.hiragana }]</h1>
             <h3>${tango.korean }</h3>
             <br>
+            <hr style="border: solid 5px blue;">
             <h3>${tango.example }</h3>
             <h3>${tango.example_korean }</h3>
         </c:when>

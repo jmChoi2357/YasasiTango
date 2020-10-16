@@ -27,13 +27,15 @@
     WHERE kanji = #{kanji} OR hiragana = #{hiragana}
 </select>
 
-<insert id="insertSearched" parameterType="String">
+<insert id="insertSearched" parameterType="HashMap">
     INSERT INTO yasashi_searched(
         searched_number,
-        searched_word
+        searched_word,
+        id
     ) VALUES(
-        searhced_num.nextval(),
-        ${kangi}
+        searhced_num.nextval,
+        #{kanji},
+        #{id}
     )
     
 </insert>

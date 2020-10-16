@@ -1,5 +1,7 @@
 package com.yasasitango.www.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,5 +30,17 @@ public class TangoDAO {
 			e.printStackTrace();
 		}
 		return tango;
+	}
+	
+	public int insertSearched(HashMap<String, String> map) {
+		TangoMapper mapper = session.getMapper(TangoMapper.class);
+		int cnt = 0;
+		try {
+			cnt = mapper.insertSearched(map);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
 	}
 }
