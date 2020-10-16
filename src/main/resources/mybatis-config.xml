@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.yasasitango.www.vo.MemberVO" alias="member"/>
+	</typeAliases> 
+	
+	 
+	<mappers>
+		<mapper resource="mapper/wordListMapper.xml" />
+	
+		
+	</mappers>
+</configuration>

@@ -131,7 +131,7 @@
 
 <a href="/JungWooPage">이동</a>
 
-<a href="/wordList">단어장</a>
+<a href="/seeWordList">단어장</a>
 
 </body>
 </html>

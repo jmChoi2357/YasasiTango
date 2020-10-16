@@ -56,46 +56,40 @@ function openPop(){
 	var popup = window.open("/popup/jlptLevel", "JLPT레벨을 선택해주세요", "width=200px,height=50px");
 }
 
-function openPopWord(){
-	var popup = window.open("/popup/wordForm", "품사를 선택해주세요", "width=200px,height=50px");
-}
 
-function search(){
-	var type = $("#searchType option:selected").val();	
-	location.href = "/seeWordList?type=" + type;
-}
+
 </script>
 </head>
 <body>
-	<form>
-		<input type="text" id="searchWord" value="">
-		<select id="searchType">
+	<form action="/seeWordList">
+		<input type="text" id="searchWord" name="searchWord" value="">
+		<select id="searchType" name="searchType">
 			<option value="date">날짜선택</option>
 			<option value="level">레벨선택</option>
-			<option value="wordForm">품사선택</option>
 		</select>
 		
-		<input type="button" value="검색" onclick="search();">
+		<input type="submit" value="검색">
+		
 	</form>
 	
 	<br>
 	
 	<c:choose>
-	<c:when test="${list != null}"> 
+	<c:when test="${not empty list }"> 
 	<c:forEach items="${list }" var="list">
 		<table>
 			<tr>
-				<th>${list.date }</th>
-				<td>${list.level } ${list.hiragana } ${list.kanji } ${list.lisetning}아이콘</td>
+				<th>${list.SEARCHED_DATE }</th>
+				<td> Level: ${list.WORD_LEVEL } ${list.HIRAGANA } ${list.KANJI } ${list.KOREAN}</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td>예문 ${list.example }</td>
+				<th>예문</th>
+				<td> ${list.EXAMPLE } ${list.EXAMPLE_KOREAN}</td>
 			</tr>
 			</table>
-	
+			<br>
 	</c:forEach>
-	</c:when>
+	</c:when> 
 	<c:otherwise>
 		<h3>정보가 없습니다.</h3>
 	</c:otherwise>
