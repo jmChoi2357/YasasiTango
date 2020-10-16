@@ -38,7 +38,7 @@ public class JungWooController {
 		System.out.println("언어:" + langCheck);
 		TangoVO tango = new TangoVO();
 		String korean = lang;
-		tango = service.tangoResultKO(korean);
+		tango = service.tangoResultKO(korean, langCheck);
 		System.out.println(tango);
 		model.addAttribute("tango", tango);	
 		return "searchResult";

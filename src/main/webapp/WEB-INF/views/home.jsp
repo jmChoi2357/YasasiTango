@@ -111,7 +111,7 @@
 	</h2>
 	
 	<form action="/searchTango">
-	    <input type = "text">
+	    <input type = "text" value="입력필요 X">
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
 	

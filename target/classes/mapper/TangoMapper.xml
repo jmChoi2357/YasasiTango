@@ -12,8 +12,29 @@
         example,
         example_korean
     FROM yasashi_tango
-    WHERE korean = #{korean}
-
+    WHERE korean LIKE '%'||#{korean}||'%' 
 </select>
 
+<select id="tangoResultJP" parameterType="String" resultType="com.yasasitango.www.vo.TangoVO">
+    SELECT 
+        word_level,
+        hiragana,
+        kanji,
+        korean,
+        example,
+        example_korean
+    FROM yasashi_tango
+    WHERE kanji = #{kanji} OR hiragana = #{hiragana}
+</select>
+
+<insert id="insertSearched" parameterType="String">
+    INSERT INTO yasashi_searched(
+        searched_number,
+        searched_word
+    ) VALUES(
+        searhced_num.nextval(),
+        ${kangi}
+    )
+    
+</insert>
 </mapper>

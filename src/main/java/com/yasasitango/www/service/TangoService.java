@@ -12,8 +12,8 @@ public class TangoService {
 	@Autowired
 	TangoDAO dao;
 	
-	public TangoVO tangoResultKO(String korean) {
-		TangoVO tango = dao.tangoResultKO(korean);
+	public TangoVO tangoResultKO(String korean, String langCheck) {
+		TangoVO tango = dao.tangoResultKO(korean, langCheck);
 		return tango;
 	}
 }

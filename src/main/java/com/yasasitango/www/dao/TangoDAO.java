@@ -12,11 +12,18 @@ public class TangoDAO {
 	@Autowired
     SqlSession session;
 
-	public TangoVO tangoResultKO(String korean) {
+	public TangoVO tangoResultKO(String korean, String langCheck) {
 		TangoMapper mapper = session.getMapper(TangoMapper.class);
 		TangoVO tango = null;
+		System.out.println("언어체크: " + langCheck);
 		try {
-			tango = mapper.tangoResultKO(korean);
+			if(langCheck.equals("ko")) {
+				System.out.println("한글 실행");
+				tango = mapper.tangoResultKO(korean);
+			}
+			else
+				 tango = mapper.tangoResultJP(korean);
+			System.out.println("탄고: " + tango);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
