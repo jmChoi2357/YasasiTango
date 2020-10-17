@@ -6,5 +6,6 @@
 
 	<mappers>
         <mapper resource="mapper/TangoMapper.xml" />
+        <mapper resource="mapper/memberMapper.xml" />
 	</mappers>
 </configuration>

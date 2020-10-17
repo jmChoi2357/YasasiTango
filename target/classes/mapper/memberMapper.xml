@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yasashitango.www.mapper.MemberMapper">
+
+    <insert id="insertMember" parameterType="com.yasasitango.www.vo.MemberVO">
+        INSERT INTO yasashi_member(
+            id,
+            pw,
+            name,
+            jlpt_level
+        ) VALUES(
+            #{id},
+            #{pw},
+            #{name},
+            #{jlpt_level}
+        )
+        
+    </insert>
+    
+    <select id="login" parameterType="com.yasasitango.www.vo.MemberVO" resultType="String">
+        SELECT 
+            id
+        FROM 
+            yasashi_member
+        WHERE
+            id = #{id} 
+            AND
+            pw = #{pw} 
+    </select>
+    
+    <update id="updateDate" parameterType="String">
+        UPDATE 
+            yasashi_member
+        SET
+            login_date = SYSDATE
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>

@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page session="false" %>
 
 <!DOCTYPE html>
 
@@ -84,6 +83,10 @@
 </head>
 <body>	
 	<h1 class="b"><center> [優し単語]　 </center></h1>
+	<c:if test="${not empty sessionScope.loginId }">
+	    <h1>${sessionScope.loginId }님 환영합니다!</h1>
+	</c:if>
+
 	
 	<hr style="border: solid 5px blue;">
 	
@@ -102,12 +105,19 @@
 	<hr style="border: solid 5px blue;">
 	
 	<h2 class="a">
-		<form action="/member/login" method="post" onsubmit="return formCheck()">
-		ID : <input type = "text" autofocus name="member_id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
-		PW : <input type = "password" autofocus name="member_pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
-		<input type="submit" value="로그인">
-		<button onclick="location.href='/member/joinForm'">회원가입</button>
-		</form>
+		<c:choose>
+		    <c:when test="${not empty sessionScope.loginId }">
+		        <button onclick="location.href='/member/logout'">로그아웃</button>
+		    </c:when>
+		    <c:otherwise>
+		        <form action="/member/login" method="post" onsubmit="return formCheck()" style="display:inline;" method="post">
+		        ID : <input type = "text" autofocus name="id" id="id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
+		        PW : <input type = "password" autofocus name="pw" id="pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
+		        <input type="submit" value="로그인">
+		        </form>
+		        <button onclick="location.href='/member/joinForm'">회원가입</button>
+		    </c:otherwise>
+		</c:choose>
 	</h2>
 	
 	<form action="/searchTango">

@@ -21,7 +21,7 @@ public class TangoService {
 		TangoVO tango = dao.tangoResultKO(korean, langCheck);
 		HashMap<String, String> map = new HashMap<String, String>();
 		String id;
-		id = (String) session.getAttribute("login");
+		id = (String) session.getAttribute("loginId");
 		map.put("id", id);
 		map.put("kanji", tango.getKanji());
 		dao.insertSearched(map);
