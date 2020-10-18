@@ -24,7 +24,7 @@ public class TangoService {
 		id = (String) session.getAttribute("loginId");
 		map.put("id", id);
 		map.put("kanji", tango.getKanji());
-		dao.insertSearched(map);
+		if(id != null) dao.insertSearched(map);
 		return tango;
 	}
 }

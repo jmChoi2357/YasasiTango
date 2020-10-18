@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yasashitango.www.mapper.QuizMapper">
+
+<select id="quiz_random" resultType="com.yasasitango.www.vo.TangoVO">
+    SELECT 
+        kanji,
+        korean
+    FROM
+        yasashi_tango
+</select>
+
+<select id="make_question" resultType="com.yasasitango.www.vo.TangoVO" parameterType="String">
+    SELECT 
+        kanji,
+        korean
+    FROM
+        yasashi_tango
+    WHERE
+        kanji != #{kanji}
+</select>
+
+</mapper>

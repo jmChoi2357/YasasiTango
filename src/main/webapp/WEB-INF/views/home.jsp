@@ -108,6 +108,7 @@
 		<c:choose>
 		    <c:when test="${not empty sessionScope.loginId }">
 		        <button onclick="location.href='/member/logout'">로그아웃</button>
+		        <button onclick="location.href='/member/quizMain'">퀴즈 페이지</button>
 		    </c:when>
 		    <c:otherwise>
 		        <form action="/member/login" method="post" onsubmit="return formCheck()" style="display:inline;" method="post">
@@ -121,7 +122,6 @@
 	</h2>
 	
 	<form action="/searchTango">
-	    <input type = "text" value="입력필요 X">
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
 	

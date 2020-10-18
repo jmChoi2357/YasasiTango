@@ -46,4 +46,9 @@ public class memberController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/quizMain", method = RequestMethod.GET)
+	public String quizMain() {
+		return "/quiz/quizMain";
+	}
 }

@@ -7,5 +7,6 @@
 	<mappers>
         <mapper resource="mapper/TangoMapper.xml" />
         <mapper resource="mapper/memberMapper.xml" />
+        <mapper resource="mapper/quizMapper.xml" />
 	</mappers>
 </configuration>
