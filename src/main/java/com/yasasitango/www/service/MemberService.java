@@ -30,12 +30,6 @@ public class MemberService {
 		return loginId;
 	}
 	
-	public int findLevel() {
-		String id = (String) session.getAttribute("loginId");
-		int jlpt_level = dao.findLevel(id);
-		return jlpt_level;
-	}
-	
 	public void logout() {
 		session.removeAttribute("loginId");
 	}

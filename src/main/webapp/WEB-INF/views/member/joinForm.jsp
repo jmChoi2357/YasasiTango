@@ -68,6 +68,7 @@
                     </select>
                 </td>
 
+				<td><input type="text" name="jlpt_level"></td>
 			</tr>
 		</table>
 		<input type="submit" value="가입하기">
