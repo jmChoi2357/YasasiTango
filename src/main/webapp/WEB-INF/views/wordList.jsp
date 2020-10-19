@@ -105,7 +105,7 @@ function search(){
 	<a href="#none" target="_blank" onclick="openPop()">팝업</a>
 	<a href="/calender">달력</a>
 	
-	test
+	
 ​
 </body>
 </html>
