@@ -4,9 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+	<typeAliases>
+		<typeAlias type="com.yasasitango.www.vo.MemberVO" alias="member"/>
+	</typeAliases> 
+	
+	 
 	<mappers>
+		<mapper resource="mapper/wordListMapper.xml" />
         <mapper resource="mapper/TangoMapper.xml" />
         <mapper resource="mapper/memberMapper.xml" />
         <mapper resource="mapper/quizMapper.xml" />
+
 	</mappers>
 </configuration>

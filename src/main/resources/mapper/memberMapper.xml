@@ -29,15 +29,6 @@
             pw = #{pw} 
     </select>
     
-    <select id="findLevel" parameterType="String" resultType="int">
-        SELECT 
-            jlpt_level
-        FROM 
-            yasashi_member
-        WHERE
-            id = #{id} 
-    </select>
-    
     <update id="updateDate" parameterType="String">
         UPDATE 
             yasashi_member
