@@ -52,23 +52,13 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
+
 	<!-- file upload를 위한 bean 설정 -->
 	<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10485760"></property>
 	</bean>		
 
-		
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 	
->>>>>>> Jungwoo
 		
 </beans>
