@@ -8,11 +8,14 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.yasasitango.www.service.WordListService;
 
 /**
  * Handles requests for the application home page.
@@ -22,6 +25,8 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@Autowired
+	private WordListService service;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -47,28 +52,14 @@ public class HomeController {
 	
 
 	@RequestMapping(value="/seeWordList", method = RequestMethod.GET)
-	public String seeWordList(String type, Model model) {
-		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-		HashMap<String, String> map = new HashMap<String, String>() ; // ArrayList<HashMap> 형태로 데이터베이스나, api에서 받아온다. 
-		map.put("date", "2020-09-16");
-		map.put("level", "JLPT2");
-		map.put("hiragana", "かんじ");
-		map.put("kanji", "漢字");
-		map.put("lisetning", "음성듣기");
-		map.put("example", "1+1=?");
+	public String seeWordList(
+			 String searchType, 
+			@RequestParam(value = "searchWord", defaultValue = "0" ) int searchWord, 
+			Model model) {
 		
-		HashMap<String, String> map2 = new HashMap<String, String>(); // ArrayList<HashMap> 형태로 데이터베이스나, api에서 받아온다. 
-		map2.put("date", "2020-09-16");
-		map2.put("level", "JLPT3");
-		map2.put("hiragana", "きほん");
-		map2.put("kanji", "基本");
-		map2.put("lisetning", "음성듣기");
-		map2.put("example", "2+1=?");
-		
-		list.add(map);
-		list.add(map2);
-		
+		ArrayList<HashMap<String, Object>> list = service.seeWordList(searchWord, searchType);
 		model.addAttribute("list", list);
+		 
 		
 		return "wordList";
 	}
