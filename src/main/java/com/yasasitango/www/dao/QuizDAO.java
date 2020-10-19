@@ -1,6 +1,7 @@
 package com.yasasitango.www.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,19 @@ public class QuizDAO {
 		return list;
 	}
 	
+	public ArrayList<TangoVO> quiz_level(int level){
+		System.out.println("현재 레벨: " + level);
+		QuizMapper mapper = session.getMapper(QuizMapper.class);
+		ArrayList<TangoVO> list = null;
+		try {
+			list = mapper.quiz_level(level);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public ArrayList<TangoVO> make_question(String kanji){
 		QuizMapper mapper = session.getMapper(QuizMapper.class);
 		ArrayList<TangoVO> list = null;
@@ -37,6 +51,18 @@ public class QuizDAO {
 		
 		return list;
 		
+	}
+	
+	public ArrayList<TangoVO> make_question_level(HashMap<String, String> map){
+		QuizMapper mapper = session.getMapper(QuizMapper.class);
+		ArrayList<TangoVO> list = null;
+		try {
+			list = mapper.make_question_level(map);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 }

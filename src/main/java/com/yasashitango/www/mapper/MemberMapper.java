@@ -7,4 +7,5 @@ public interface MemberMapper {
 	public int insertMember(MemberVO member);
 	public String login(MemberVO member);
 	public int updateDate(String id);
+	public int findLevel(String id);
 }

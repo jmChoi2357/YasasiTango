@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -48,7 +49,9 @@ public class memberController {
 	}
 	
 	@RequestMapping(value="/quizMain", method = RequestMethod.GET)
-	public String quizMain() {
+	public String quizMain(Model model) {
+		int level = service.findLevel();
+		model.addAttribute("level", level);
 		return "/quiz/quizMain";
 	}
 }
