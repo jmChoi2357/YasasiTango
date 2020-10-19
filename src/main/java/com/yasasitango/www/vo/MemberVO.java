@@ -9,5 +9,6 @@ public class MemberVO {
 	private String name;
 	private String latestLoginDate;
 	private String searchedWord;
+	private int jlpt_level;
 
 }

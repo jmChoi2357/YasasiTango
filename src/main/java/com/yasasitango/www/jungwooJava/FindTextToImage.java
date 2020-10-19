@@ -105,14 +105,15 @@ public static void detectText() throws IOException {
   }
   
   
-  public static void detectTextGcs() throws IOException {
-	    // TODO(developer): Replace these variables before running the sample.
-	    String filePath = "https://3.bp.blogspot.com/-Ysg9gD0BSWg/UNrdB2zjPMI/AAAAAAAAJkA/3v15_io6FmQ/s320/banner_food_cooking.jpg";
-	    detectTextGcs(filePath);
-	  }
+	/*
+	 * public static void detectTextGcs() throws IOException { // TODO(developer):
+	 * Replace these variables before running the sample. String filePath =
+	 * "https://3.bp.blogspot.com/-Ysg9gD0BSWg/UNrdB2zjPMI/AAAAAAAAJkA/3v15_io6FmQ/s320/banner_food_cooking.jpg";
+	 * detectTextGcs(filePath); }
+	 */
 
 	  // Detects text in the specified remote image on Google Cloud Storage.
-	  public static void detectTextGcs(String gcsPath) throws IOException {
+	  public String detectTextGcs(String gcsPath) throws IOException {
 	    List<AnnotateImageRequest> requests = new ArrayList<>();
 	    String result = "";
 	    //ImageSource imgSource = ImageSource.newBuilder().setGcsImageUri(gcsPath).build(); 이건 gs주소용 일반주소는 setImageUri
@@ -133,18 +134,19 @@ public static void detectText() throws IOException {
 	      for (AnnotateImageResponse res : responses) {
 	        if (res.hasError()) {
 	          System.out.format("Error: %s%n", res.getError().getMessage());
-	          return;
+	          return "이미지를 찾을 수 없습니다";
 	        }
 
 	        // For full list of available annotations, see http://g.co/cloud/vision/docs
 	        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
 	          System.out.format("Text: %s%n", annotation.getDescription());
-	          System.out.format("Position : %s%n", annotation.getBoundingPoly());
+	          //System.out.format("Position : %s%n", annotation.getBoundingPoly());
 	          result += annotation.getDescription();
 	        }
 	        System.out.println("결과: " + result);
 	      }
 	    }
+	    return result;
 	  }
 
 }
