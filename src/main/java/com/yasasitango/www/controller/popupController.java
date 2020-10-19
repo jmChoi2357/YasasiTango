@@ -15,10 +15,6 @@ public class popupController {
 		 return "popup/jlptLevel";
 	 }
 	 
-	 @RequestMapping(value="/wordForm", method = RequestMethod.GET) 
-	 public String wordForm() { 
-		 
-		 return "popup/wordForm";
-	 }
+	
 	 
 }

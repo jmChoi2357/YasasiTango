@@ -11,16 +11,6 @@
         yasashi_tango
 </select>
 
-<select id="quiz_level" resultType="com.yasasitango.www.vo.TangoVO" parameterType="Integer">
-    SELECT 
-        kanji,
-        korean
-    FROM
-        yasashi_tango
-    WHERE
-        word_level = #{word_level}
-</select>
-
 <select id="make_question" resultType="com.yasasitango.www.vo.TangoVO" parameterType="String">
     SELECT 
         kanji,
@@ -29,18 +19,6 @@
         yasashi_tango
     WHERE
         kanji != #{kanji}
-</select>
-
-<select id="make_question_level" resultType="com.yasasitango.www.vo.TangoVO" parameterType="HashMap">
-    SELECT 
-        kanji,
-        korean
-    FROM
-        yasashi_tango
-    WHERE
-        kanji != #{kanji}
-        AND
-        word_level = #{level}
 </select>
 
 </mapper>

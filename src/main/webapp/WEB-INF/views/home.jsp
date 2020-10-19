@@ -91,20 +91,10 @@
 	<hr style="border: solid 5px blue;">
 	
 	
-	<nav id="topMenu"> 
-		<ul> 
-			<li><a class="menuLink" href="#">사이트소개</a></li>
-			<li><a class="menuLink" href="#">내 정보</a></li> 
-			<li><a class="menuLink" href="#">번역</a></li> 
-			<li><a class="menuLink" href="#">단어장</a></li> 
-			<li><a class="menuLink" href="#">문의사항</a></li> 
-		</ul> 
-	</nav>
-	
-	
-	<hr style="border: solid 5px blue;">
-	
-	<h2 class="a">
+
+
+		<h2> JLPT 등급별 퀴즈풀기 </h2>
+
 		<c:choose>
 		    <c:when test="${not empty sessionScope.loginId }">
 		        <button onclick="location.href='/member/logout'">로그아웃</button>
@@ -125,29 +115,24 @@
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
 	
-	<fileset>
-		<legend><h2> JLPT 등급별 퀴즈풀기 </h2></legend>
+
+		<h2> JLPT 등급별 퀴즈풀기 </h2>
+
 		<h3>
-			<input type ="radio" name ="rd" checked> JLPT1
+			<input type ="radio" name ="rd"> JLPT1
 			<input type ="radio" name ="rd"> JLPT2
 			<input type ="radio" name ="rd"> JLPT3
 			<input type ="radio" name ="rd"> JLPT4
 			<input type ="radio" name ="rd"> JLPT5
 		 </h3>
-	 </fileset>
+	 
 	
 	<br> 
-		<input type="submit" value="번역"> -> 번역 페이지로 이동합니다.
-	</br>
-	<br>
-		<input type="submit" value="나의단어장"> -> 단어장 페이지로 이동합니다.
-	</br>
+		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
 	
-
-<a href="/JungWooPage">이동</a>
-
-<a href="/wordList">단어장</a>
-
+	<br>
+		<button onclick ="location.href='/seeWordList'">나의 단어장</button>
+		
 </body>
 </html>
 
