@@ -26,9 +26,9 @@
 </head>
 <body>
     <h1>[${quiz.kanji }]</h1>
-    <div id="ViewTimer"></div>
     <c:forEach var="question" items="${question }" varStatus="status">
         <button onclick="location.href='/quiz/answer?answer=${question.korean }'">${question.korean }</button> <br>
     </c:forEach>
+    <div id="ViewTimer"></div>
 </body>
 </html>
