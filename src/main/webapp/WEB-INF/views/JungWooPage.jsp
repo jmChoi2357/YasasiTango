@@ -113,6 +113,9 @@
         </tr>
     </table>
     <input type="hidden" id="selectLang" value="kr">
+    
+    <button onclick ="location.href='/'">HOME으로 돌아가기 </button>
+	
 </body>
 </html>
 

@@ -88,51 +88,33 @@
 	<hr style="border: solid 5px blue;">
 	
 	
-	<nav id="topMenu"> 
-		<ul> 
-			<li><a class="menuLink" href="#">사이트소개</a></li>
-			<li><a class="menuLink" href="#">내 정보</a></li> 
-			<li><a class="menuLink" href="#">번역</a></li> 
-			<li><a class="menuLink" href="#">단어장</a></li> 
-			<li><a class="menuLink" href="#">문의사항</a></li> 
-		</ul> 
-	</nav>
-	
-	
-	<hr style="border: solid 5px blue;">
+
 	
 	<h2 class="a">
-		<form action="/member/login" method="post" onsubmit="return formCheck()">
+		<form action="/member/login" method="post" id="login" onsubmit="return formCheck()">
 		ID : <input type = "text" autofocus name="member_id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
 		PW : <input type = "password" autofocus name="member_pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
-		<input type="submit" value="로그인">
-		<button onclick="location.href='/member/joinForm'">회원가입</button>
 		</form>
+		<button type="submit" form="login">테스트로그인</button>
+		<button onclick="location.href='/member/joinForm'">회원가입</button>
 	</h2>
-	
-	<fileset>
-		<legend><h2> JLPT 등급별 퀴즈풀기 </h2></legend>
+
+		<h2> JLPT 등급별 퀴즈풀기 </h2>
 		<h3>
-			<input type ="radio" name ="rd" checked> JLPT1
+			<input type ="radio" name ="rd"> JLPT1
 			<input type ="radio" name ="rd"> JLPT2
 			<input type ="radio" name ="rd"> JLPT3
 			<input type ="radio" name ="rd"> JLPT4
 			<input type ="radio" name ="rd"> JLPT5
 		 </h3>
-	 </fileset>
+	 
 	
 	<br> 
-		<input type="submit" value="번역"> -> 번역 페이지로 이동합니다.
-	</br>
-	<br>
-		<input type="submit" value="나의단어장"> -> 단어장 페이지로 이동합니다.
-	</br>
+		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
 	
-
-<a href="/JungWooPage">이동</a>
-
-<a href="/seeWordList">단어장</a>
-
+	<br>
+		<button onclick ="location.href='/seeWordList'">나의 단어장</button>
+		
 </body>
 </html>
 
