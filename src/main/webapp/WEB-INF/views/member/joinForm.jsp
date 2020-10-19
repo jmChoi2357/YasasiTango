@@ -57,6 +57,7 @@
 			</tr>
 			<tr>
 				<th>JLPT레벨</th>
+<<<<<<< HEAD
 				<td>
 
 				    <select name="jlpt_level">
@@ -68,6 +69,8 @@
                     </select>
                 </td>
 
+=======
+>>>>>>> parent of df56dd6... 레벨별 퀴즈풀기 추가
 				<td><input type="text" name="jlpt_level"></td>
 			</tr>
 		</table>
