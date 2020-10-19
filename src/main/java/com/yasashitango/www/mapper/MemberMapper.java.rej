@@ -1,7 +1,0 @@
-diff a/src/main/java/com/yasashitango/www/mapper/MemberMapper.java b/src/main/java/com/yasashitango/www/mapper/MemberMapper.java	(rejected hunks)
-@@ -7,4 +7,5 @@
- 	public int insertMember(MemberVO member);
- 	public String login(MemberVO member);
- 	public int updateDate(String id);
-+	public int findLevel(String id);
- }
