@@ -57,20 +57,7 @@
 			</tr>
 			<tr>
 				<th>JLPT레벨</th>
-<<<<<<< HEAD
-				<td>
 
-				    <select name="jlpt_level">
-                        <option value="1">N1</option>
-                        <option value="2">N2</option>
-                        <option value="3">N3</option>
-                        <option value="4">N4</option>
-                        <option value="5">N5</option>
-                    </select>
-                </td>
-
-=======
->>>>>>> parent of df56dd6... 레벨별 퀴즈풀기 추가
 				<td><input type="text" name="jlpt_level"></td>
 			</tr>
 		</table>
