@@ -57,7 +57,6 @@
 			</tr>
 			<tr>
 				<th>JLPT레벨</th>
-
 				<td><input type="text" name="jlpt_level"></td>
 			</tr>
 		</table>
