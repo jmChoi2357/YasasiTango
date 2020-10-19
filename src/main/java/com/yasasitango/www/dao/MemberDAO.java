@@ -49,17 +49,4 @@ public class MemberDAO {
 		
 		return cnt;
 	}
-	
-	public int findLevel(String id) {
-		MemberMapper mapper = session.getMapper(MemberMapper.class);
-        int jlpt_level = 0;
-		
-		try {
-			jlpt_level = mapper.findLevel(id);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return jlpt_level;
-	}
 }
