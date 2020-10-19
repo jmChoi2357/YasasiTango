@@ -92,6 +92,19 @@
 	
 	
 
+<<<<<<< HEAD
+=======
+	
+	<h2 class="a">
+
+		<form action="/member/login" method="post" id="login" onsubmit="return formCheck()">
+		ID : <input type = "text" autofocus name="member_id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
+		PW : <input type = "password" autofocus name="member_pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
+		</form>
+		<button type="submit" form="login">테스트로그인</button>
+		<button onclick="location.href='/member/joinForm'">회원가입</button>
+	</h2>
+>>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 
 		<h2> JLPT 등급별 퀴즈풀기 </h2>
 

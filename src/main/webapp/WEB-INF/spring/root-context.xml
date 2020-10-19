@@ -10,17 +10,33 @@
 			<value>classpath:db.properties</value>
 		</property>
 	</bean>
+<<<<<<< HEAD
 		
 		<!-- db.properties의 설정 값을 읽어서 setting -->
+=======
+<<<<<<< HEAD
+		
+		<!-- db.properties의 설정 값을 읽어서 setting -->
+=======
+>>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 	
 	<!-- db.properties의 설정 값을 읽어서 setting -->
+>>>>>>> Jungwoo
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${driver}" />
 		<property name="url" value="${url}" />
 		<property name="username" value="${user}" />
 		<property name="password" value="${password}" />
 	</bean>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+	
+=======
+		
+>>>>>>> Jungwoo
+>>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 	<!-- 트랙잭션 관리를 위한 빈설정 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -37,6 +53,10 @@
 		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 	<!-- file upload를 위한 bean 설정 -->
 	<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -44,6 +64,11 @@
 	</bean>		
 
 		
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5cfabaf62c9504b0ed61b3bbf57ee05db70574f9
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 	
+>>>>>>> Jungwoo
 		
 </beans>
