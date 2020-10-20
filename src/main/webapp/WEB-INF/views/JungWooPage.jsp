@@ -67,6 +67,7 @@
        }
 
        function speech_to_text(){
+    	$("#send_text").val("음성입력 시작!");
     	var test = {"code": $("#selectLang").val()};
        	$.ajax({
        		type: "POST",
@@ -82,6 +83,23 @@
 
            });
        }
+
+       function findTextToImage(){
+    	   var test = {"Image": $("#image").val()};
+          	$.ajax({
+          		type: "POST",
+          		data: test,
+          		url: "/find_Text_To_Image",	
+          		success: function (data) { 
+          		$("#send_text").val(data);
+          		},
+          		error: function (e) {
+          		alert('실패했습니다.');
+          		console.log(e);
+          		}
+
+              });
+          }
     </script>
 <meta charset="UTF-8">
 <title>번역 페이지</title>
@@ -94,7 +112,7 @@
             <th colspan="2"><h2 id="langCode">한국어 -> 일본어</h2></th>
             <th align="right">
                 <button onclick="speech_to_text();"><img width="40" height="40"  src="/resources/Image/misc.png"></button>
-                <button><img width="40" height="40"  src="/resources/Image/change.png"></button>
+                <button onclick="changeLang();"><img width="40" height="40"  src="/resources/Image/change.png"></button>
             </th>
             <th></th>
             <th align="right" onclick="text_to_speech();"><button class="img-button"><img width="40" height="40"  src="/resources/Image/voice.png"></button></th>
@@ -105,7 +123,8 @@
         </tr>
         <tr>
             <td>
-                <input type="file" value="이미지 검색" title="이미지">
+                <input type="text" placeholder="링크 입력" id="image"> 
+                <button onclick="findTextToImage();">이미지 검색</button>
             </td>
             <td></td>
             <td align="right"><button onclick="papa();">번역하기</button></td>

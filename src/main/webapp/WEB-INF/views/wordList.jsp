@@ -96,7 +96,15 @@ function openPop(){
 		
 	</c:choose>
 	
+
 	<button onclick ="location.href='/'">HOME으로 돌아가기</button>
 	
+
+	<a href="#none" target="_blank" onclick="openPop()">팝업</a>
+	<a href="/calender">달력</a>
+	
+	
+​
+
 </body>
 </html>

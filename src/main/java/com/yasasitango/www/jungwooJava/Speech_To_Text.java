@@ -28,9 +28,9 @@ public class Speech_To_Text {
 		  final ArrayList<String> success = new ArrayList<>();
 		  String langanguage = "ja-JP"; 	
 		     if(code.equals("jp"))
-		    	 langanguage = "ko-KR";
-		     else
 		    	 langanguage = "ja-JP";
+		     else
+		    	 langanguage = "ko-KR";
 
 		  ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
 		  try (SpeechClient client = SpeechClient.create()) {
