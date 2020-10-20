@@ -17,16 +17,17 @@ public class TangoService {
 	@Autowired
 	TangoDAO dao;
 	
-	public TangoVO tangoResultKO(String korean, String langCheck) {
-		TangoVO tango = dao.tangoResultKO(korean, langCheck);
-		HashMap<String, String> map = new HashMap<String, String>();
+	public TangoVO tangoResultKO(String searchWord, String langCheck) {
+		TangoVO tango = dao.tangoResultKO(searchWord, langCheck);
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		String id;
 		id = (String) session.getAttribute("loginId");
-		if(id != null) {
+		
+			int word_num = tango.getWord_num();
+			System.out.println(word_num);
 			map.put("id", id);
-			map.put("kanji", tango.getKanji());
+			map.put("word_num", word_num);
 			dao.insertSearched(map);
-		}
 		return tango;
 	}
 }

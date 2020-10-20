@@ -30,11 +30,11 @@
 <insert id="insertSearched" parameterType="HashMap">
     INSERT INTO yasashi_searched(
         searched_number,
-        searched_word,
+        word_num,
         id
     ) VALUES(
-        searhced_num.nextval,
-        #{kanji},
+        searched_num.nextval,
+        #{word_num},
         #{id}
     )
     

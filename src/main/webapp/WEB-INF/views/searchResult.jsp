@@ -46,5 +46,7 @@
         </c:otherwise>
     </c:choose>
     
+    <button onclick ="location.href='/'">HOME으로 돌아가기</button>
+    
 </body>
 </html>

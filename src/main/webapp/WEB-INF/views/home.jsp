@@ -106,15 +106,16 @@
 		    </c:when>
 		    <c:otherwise>
 		       <form action="/member/login" method="post" id="login" onsubmit="return formCheck()">
-				ID : <input type = "text" autofocus name="member_id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
-				PW : <input type = "password" autofocus name="member_pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
+				ID : <input type = "text" name="id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
+				PW : <input type = "password" name="pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
 				</form>
-				<button type="submit" form="login">테스트로그인</button>
+				<button type="submit" form="login">로그인</button>
 				<button onclick="location.href='/member/joinForm'">회원가입</button>
 		    </c:otherwise>
 		</c:choose>
 	</h2>
-	
+	<br>
+	<br>
 	<form action="/searchTango">
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>

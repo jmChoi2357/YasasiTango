@@ -35,8 +35,8 @@ public class JungWooController {
 	@RequestMapping(value = "/searchResult", method = RequestMethod.GET)
 	public String searchResult(String lang, String langCheck, Model model) {
 		TangoVO tango = new TangoVO();
-		String korean = lang;
-		tango = service.tangoResultKO(korean, langCheck);
+		String searchWord = lang;
+		tango = service.tangoResultKO(searchWord, langCheck);
 		//System.out.println(tango);
 		model.addAttribute("tango", tango);	
 		return "searchResult";

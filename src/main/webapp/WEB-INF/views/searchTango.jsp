@@ -28,5 +28,7 @@
         <input type ="submit" value="검색">
         <input type = "hidden" id="langCheck" name="langCheck">
     </form>
+    
+    <button onclick ="location.href='/'">HOME으로 돌아가기</button>
 </body>
 </html>

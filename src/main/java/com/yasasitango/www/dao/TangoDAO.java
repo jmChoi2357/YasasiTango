@@ -14,23 +14,23 @@ public class TangoDAO {
 	@Autowired
     SqlSession session;
 
-	public TangoVO tangoResultKO(String korean, String langCheck) {
+	public TangoVO tangoResultKO(String searchWord, String langCheck) {
 		TangoMapper mapper = session.getMapper(TangoMapper.class);
 		TangoVO tango = null;
 		System.out.println("언어체크: " + langCheck);
 		try {
 			if(langCheck.equals("ko")) {
-				tango = mapper.tangoResultKO(korean);
+				tango = mapper.tangoResultKO(searchWord);
 			}
 			else
-				 tango = mapper.tangoResultJP(korean);
+				 tango = mapper.tangoResultJP(searchWord);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return tango;
 	}
 	
-	public int insertSearched(HashMap<String, String> map) {
+	public int insertSearched(HashMap<String, Object> map) {
 		TangoMapper mapper = session.getMapper(TangoMapper.class);
 		int cnt = 0;
 		try {
