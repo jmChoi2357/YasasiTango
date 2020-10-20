@@ -22,7 +22,7 @@ public class TangoService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String id;
 		id = (String) session.getAttribute("loginId");
-		
+			System.out.println(tango);
 			int word_num = tango.getWord_num();
 			System.out.println(word_num);
 			map.put("id", id);

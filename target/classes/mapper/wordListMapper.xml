@@ -28,4 +28,7 @@
 		order by searched_date desc
 		
 	</select>
+	
+	
+	
 </mapper>
