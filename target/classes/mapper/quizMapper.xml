@@ -43,4 +43,13 @@
         word_level = #{level}
 </select>
 
+<update id="gradeUp" parameterType="String">
+    UPDATE
+        yasashi_member
+    SET
+        jlpt_level = jlpt_level - 1
+    WHERE
+        id = #{id} AND jlpt_level != 1
+</update>
+
 </mapper>

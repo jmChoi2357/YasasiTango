@@ -120,18 +120,6 @@
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
 	
-	
-		<h2> JLPT 등급별 퀴즈풀기 </h2>
-
-		<h3>
-			<input type ="radio" name ="rd"> JLPT1
-			<input type ="radio" name ="rd"> JLPT2
-			<input type ="radio" name ="rd"> JLPT3
-			<input type ="radio" name ="rd"> JLPT4
-			<input type ="radio" name ="rd"> JLPT5
-		 </h3>
-	 
-	
 	<br> 
 		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
 	

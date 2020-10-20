@@ -128,7 +128,11 @@ public class QuizController {
 		}
 		
 		if(count >= 5) {
-            model.addAttribute("point", point); 
+            model.addAttribute("point", point);
+            if(point == 5) {
+            	int cnt = service.gradeUp(); //성공1 실패0
+            	model.addAttribute("rankUp", cnt);
+            }
 			return "redirect:/quiz/quizResult";
 		} else {
 			if(isRandom) return "redirect:/quiz/quiz_random";
