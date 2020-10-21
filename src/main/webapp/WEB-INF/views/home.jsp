@@ -90,6 +90,14 @@
 	
 	<hr style="border: solid 5px blue;">
 
+<<<<<<< HEAD
+=======
+	
+	<h2 class="a">
+
+	
+
+>>>>>>> jungwoo3
 		<h2> JLPT 등급별 퀴즈풀기 </h2>
 
 		<c:choose>
@@ -98,20 +106,22 @@
 		        <button onclick="location.href='/member/quizMain'">퀴즈 페이지</button>
 		    </c:when>
 		    <c:otherwise>
-		        <form action="/member/login" method="post" onsubmit="return formCheck()" style="display:inline;" method="post">
-		        ID : <input type = "text" autofocus name="id" id="id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
-		        PW : <input type = "password" autofocus name="pw" id="pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
-		        <input type="submit" value="로그인">
-		        </form>
-		        <button onclick="location.href='/member/joinForm'">회원가입</button>
+		       <form action="/member/login" method="post" id="login" onsubmit="return formCheck()">
+				ID : <input type = "text" name="id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
+				PW : <input type = "password" name="pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
+				</form>
+				<button type="submit" form="login">로그인</button>
+				<button onclick="location.href='/member/joinForm'">회원가입</button>
 		    </c:otherwise>
 		</c:choose>
 	</h2>
-	
+	<br>
+	<br>
 	<form action="/searchTango">
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
 	
+<<<<<<< HEAD
 
 		<h2> JLPT 등급별 퀴즈풀기 </h2>
 
@@ -124,6 +134,8 @@
 		 </h3>
 	 
 	
+=======
+>>>>>>> jungwoo3
 	<br> 
 		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
 	

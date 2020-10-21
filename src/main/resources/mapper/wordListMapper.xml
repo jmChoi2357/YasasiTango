@@ -14,7 +14,7 @@
 			,a.example_korean
 			,to_char(b.searched_date, 'yyyy-mm-dd') as searched_date
 		from  yasashi_tango a, yasashi_searched b
-		where a.word_num = b.word_num and b.id='test'
+		where a.word_num = b.word_num and b.id=#{id}
 		  
 		<if test="searchType == 'date'">
 	      and to_char(b.searched_date, 'yyyymmdd')= #{searchWord}
@@ -28,4 +28,7 @@
 		order by searched_date desc
 		
 	</select>
+	
+	
+	
 </mapper>

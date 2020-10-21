@@ -6,7 +6,9 @@ import com.yasasitango.www.vo.TangoVO;
 
 public interface TangoMapper {
 
-	public TangoVO tangoResultKO(String korean);
-	public TangoVO tangoResultJP(String korean);
-	public int insertSearched(HashMap<String, String> map);
+	public TangoVO tangoResultKO(String searchWord);
+	public TangoVO tangoResultJP(String searchWord);
+	public int insertSearched(HashMap<String, Object> map);
+	
+	
 }

@@ -5,6 +5,7 @@
 
 <select id="tangoResultKO" parameterType="String" resultType="com.yasasitango.www.vo.TangoVO">
     SELECT 
+    	word_num,
         word_level,
         hiragana,
         kanji,
@@ -17,6 +18,7 @@
 
 <select id="tangoResultJP" parameterType="String" resultType="com.yasasitango.www.vo.TangoVO">
     SELECT 
+    	word_num,
         word_level,
         hiragana,
         kanji,
@@ -30,13 +32,17 @@
 <insert id="insertSearched" parameterType="HashMap">
     INSERT INTO yasashi_searched(
         searched_number,
-        searched_word,
+        word_num,
         id
     ) VALUES(
-        searhced_num.nextval,
-        #{kanji},
+        searched_num.nextval,
+        #{word_num},
         #{id}
     )
     
 </insert>
+
+
+
+
 </mapper>

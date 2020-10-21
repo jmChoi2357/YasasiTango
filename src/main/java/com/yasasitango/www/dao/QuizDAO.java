@@ -64,5 +64,16 @@ public class QuizDAO {
 		
 		return list;
 	}
+	
+	public int gradeUp(String id) {
+		QuizMapper mapper = session.getMapper(QuizMapper.class);
+		int cnt = 0;
+		try {
+			cnt = mapper.gradeUp(id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 
 }

@@ -57,7 +57,21 @@
 			</tr>
 			<tr>
 				<th>JLPT레벨</th>
+<<<<<<< HEAD
 				<td><input type="text" name="jlpt_level"></td>
+=======
+				<td>
+
+				    <select name="jlpt_level">
+                        <option value="1">N1</option>
+                        <option value="2">N2</option>
+                        <option value="3">N3</option>
+                        <option value="4">N4</option>
+                        <option value="5">N5</option>
+                    </select>
+                </td>
+
+>>>>>>> jungwoo3
 			</tr>
 		</table>
 		<input type="submit" value="가입하기">

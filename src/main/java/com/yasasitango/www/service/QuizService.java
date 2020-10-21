@@ -38,4 +38,10 @@ public class QuizService {
 		ArrayList<TangoVO> list = dao.make_question_level(map);
 		return list;
 	}
+	
+	public int gradeUp() {
+		String id = (String) session.getAttribute("loginId");
+		int cnt = dao.gradeUp(id);
+		return cnt;
+	}
 }
