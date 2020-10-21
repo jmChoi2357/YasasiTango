@@ -22,18 +22,12 @@ public class TangoService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String id;
 		id = (String) session.getAttribute("loginId");
-<<<<<<< HEAD
-		map.put("id", id);
-		map.put("kanji", tango.getKanji());
-		if(id != null) dao.insertSearched(map);
-=======
 			System.out.println(tango);
 			int word_num = tango.getWord_num();
 			System.out.println(word_num);
 			map.put("id", id);
 			map.put("word_num", word_num);
 			dao.insertSearched(map);
->>>>>>> jungwoo3
 		return tango;
 	}
 }
