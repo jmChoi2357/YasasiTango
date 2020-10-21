@@ -49,7 +49,6 @@ public class MemberDAO {
 		
 		return cnt;
 	}
-	
 	public int findLevel(String id) {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
         int jlpt_level = 0;
