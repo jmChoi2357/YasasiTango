@@ -87,17 +87,10 @@
 	    <h1>${sessionScope.loginId }님 환영합니다!</h1>
 	</c:if>
 
-	
 	<hr style="border: solid 5px blue;">
 
-<<<<<<< HEAD
-=======
-	
 	<h2 class="a">
 
-	
-
->>>>>>> jungwoo3
 		<h2> JLPT 등급별 퀴즈풀기 </h2>
 
 		<c:choose>
@@ -120,8 +113,6 @@
 	<form action="/searchTango">
 	    <input type = "submit" value="검색 페이지 이동">
 	</form>
-	
-<<<<<<< HEAD
 
 		<h2> JLPT 등급별 퀴즈풀기 </h2>
 
@@ -132,10 +123,7 @@
 			<input type ="radio" name ="rd"> JLPT4
 			<input type ="radio" name ="rd"> JLPT5
 		 </h3>
-	 
-	
-=======
->>>>>>> jungwoo3
+
 	<br> 
 		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
 	
