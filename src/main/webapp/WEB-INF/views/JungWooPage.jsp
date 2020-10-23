@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <script type="text/javascript" src="/resources/jquery-3.5.1.min.js"></script>
@@ -102,38 +102,73 @@
           }
     </script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 <title>번역 페이지</title>
+<!-- Bootstrap core CSS -->
+  <link href="<%=request.getContextPath()%>/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="<%=request.getContextPath()%>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="<%=request.getContextPath()%>/resources/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="<%=request.getContextPath()%>/resources/css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-<h1 class="top">YASHSHITANGO</h1>
-<hr> <br><br>
+<!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">[優し単語]</a>
+      
+      <div id="top_login">
+      <c:choose>
+      	<c:when test="${not empty sessionScope.loginId }">
+	    	<div class="btn"><b>${sessionScope.loginId }님 환영합니다!</b></div>
+	    	&nbsp;&nbsp;
+	    	<a class="btn btn-primary" href="/member/logout">Logout</a>
+		</c:when>
+		<c:otherwise>		
+	      <a class="btn btn-primary" href="/loginPage">login</a>
+	      &nbsp;&nbsp;
+		  <a class="btn btn-primary" href="/member/joinForm">회원가입</a> 
+		</c:otherwise>
+      </c:choose>
+      </div>
+    </div>
+  </nav>
+
+
+<br><br>
     <table>
         <tr>
             <th colspan="2"><h2 id="langCode">한국어 -> 일본어</h2></th>
             <th align="right">
-                <button onclick="speech_to_text();"><img width="40" height="40"  src="/resources/Image/misc.png"></button>
-                <button onclick="changeLang();"><img width="40" height="40"  src="/resources/Image/change.png"></button>
+                <button class="btn btn-primary" onclick="speech_to_text();"><img width="40" height="40"  src="/resources/Image/misc.png"></button>
+                <button class="btn btn-primary" onclick="changeLang();"><img width="40" height="40"  src="/resources/Image/change.png"></button>
             </th>
             <th></th>
-            <th align="right" onclick="text_to_speech();"><button class="img-button"><img width="40" height="40"  src="/resources/Image/voice.png"></button></th>
+            <th align="right" onclick="text_to_speech();"><button class="btn btn-primary"><img width="40" height="40"  src="/resources/Image/voice.png"></button></th>
         </tr>
         <tr>
-            <th colspan="3"><textarea rows="15" cols="80" id="send_text" placeholder="번역 문장 입력"></textarea></th>
-            <th colspan="3"><textarea rows="15" cols="80" id="result_text" placeholder="번역 출력"  readonly></textarea></th>
+            <th colspan="3"><textarea class="form-control" rows="15" cols="80" id="send_text" placeholder="번역 문장 입력"></textarea></th>
+            <th colspan="3"><textarea class="form-control" rows="15" cols="80" id="result_text" placeholder="번역 출력"  readonly></textarea></th>
         </tr>
         <tr>
             <td>
-                <input type="text" placeholder="링크 입력" id="image"> 
-                <button onclick="findTextToImage();">이미지 검색</button>
+                <input type="text" class="form-control" placeholder="링크 입력" id="image" style="width:200px; display: inline;" > 
+                <button class="btn btn-primary" onclick="findTextToImage();">이미지 검색</button>
             </td>
             <td></td>
-            <td align="right"><button onclick="papa();">번역하기</button></td>
+            <td align="right"><button class="btn btn-primary" onclick="papa();">번역하기</button></td>
             <td colspan="3"></td>
         </tr>
     </table>
     <input type="hidden" id="selectLang" value="kr">
     
-    <button onclick ="location.href='/'">HOME으로 돌아가기 </button>
+    
 	
 </body>
 </html>

@@ -64,8 +64,13 @@ public class HomeController {
 		return "wordList";
 	}
 	
-	@RequestMapping(value="/calender", method = RequestMethod.GET)
-	public String calender() {
-		return "calender";
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping(value="/loginPage", method = RequestMethod.GET)
+	public String loginPage() {
+		return "loginPage";
 	}
 }

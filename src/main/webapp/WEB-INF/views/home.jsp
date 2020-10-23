@@ -6,8 +6,25 @@
 
 <html>
 <head>
-<meta charset = "utf-8">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
 <title>main</title>	
+
+<!-- Bootstrap core CSS -->
+  <link href="<%=request.getContextPath()%>/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="<%=request.getContextPath()%>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="<%=request.getContextPath()%>/resources/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="<%=request.getContextPath()%>/resources/css/landing-page.min.css" rel="stylesheet">
+  
+	<script type="text/javascript" src="/resources/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript">
 
 
@@ -36,99 +53,147 @@
 			
 						return true;
 				}
+
+				function KoCheck(e){
+			        var lang = document.getElementById('lang').value;
+			         var check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+			         if(check.test(lang)){
+			            document.getElementById('langCheck').value = "ko";
+			         }else{
+			            document.getElementById('langCheck').value = "jp";
+			         }
+			         return true;
+			    }
+
+				 function speech_to_text(){
+				    	$("#lang").val("음성입력 시작!");
+				    	var test = {"code": $("#selectLang").val()};
+				       	$.ajax({
+				       		type: "POST",
+				       		data: test,
+				       		url: "/speech_to_text",	
+				       		success: function (data) { 
+				       		$("#lang").val(data);
+				       		},
+				       		error: function (e) {
+				       		alert('실패했습니다.');
+				       		console.log(e);
+				       		}
+
+				           });
+				       }
 	</script>
 	
 	<style>
-		.a{
-			background-color: #BBDEFB;
-		}
-		
-		.b{
-			background-color: #BBDEFB;
-		}
+	
+	#top_login { text-align : right}
+	
+	
 	</style>
 	
-	<style> 
-		.topMenu { // topMenu의 ID를 가진 태그의 스타일 지정 
-			height: 30px; // topMenu의 높이를 30px로 설정(제대로 설정 안하면 아래 내용이 깨짐) 
-			width: 850px; // topMenu의 넓이를 850px로 설정(제대로 설정 안하면 브라우져 넓이가 좁아지면 깨짐) 
-		} 
-		
-		.topMenu ul li { // topMenu의 ID를 가진 태그 안에 <ul> 태그 안에 <li> 태그의 스타일을 지정 
-			list-style: none; // <li> 태그는 위의 이미지처럼 목록을 나타내는 점을 없앤다 
-			color: white; // 글씨 색을 흰색으로 설정 
-			background-color: #2d2d2d; // 배경색을 진한 회색(RGB(2D,2D,2D)으로 설정 
-			float: left; // <li>태그들이 왼쪽에 흐르게 설정(그러면 아래있는 내용은 오른쪽으로 옴) 
-			line-height: 30px; // 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이를 30px로 설정 
-			vertical-align: middle; // 세로 정렬을 가운데로 설정(위의 line-height와 같이 설정 필요함) 
-			text-align: center; // 글씨 정렬을 가운데로 설정 
-		} 
-		
-		.topMenu .menuLink { // topMenu 아이디를 가진 태그 안에 있는 menuLink 클래스 태그들의 스타일 설정 
-			text-decoration:none; // 링크(<a> 태그)가 가지는 기본 꾸밈 효과(밑줄 등)을 없앰 
-			color: white; // 폰트색을 흰색으로 설정 
-			display: block; // 링크를 글씨가 있는 부분 뿐만아니라 전체 영역을 클릭해도 링크가 걸리게 설정
-			width: 150px; // 메뉴링크의 넓이 설정 
-			font-size: 12px; // 폰트 사이즈 12px로 설정 
-			font-weight: bold; // 폰트를 굵게 
-			font-family: "Trebuchet MS", Dotum, Arial; // 기본 폰트 적용, 시스템 폰트를 종류별로 순서대로 
-		} 
-		
-		.topMenu .menuLink:hover { //topMenu 아이디를 가진 태그 안에 menuLink클래스를 가진 태그에 마우스가 over되면 스타일 설정 
-			color: red; // 글씨 색을 붉은색으로 설정 
-			background-color: #4d4d4d; // 배경색을 조금 더 밝은 회색으로 설정 
-		} 
-	</style>
+	
 	
 </head>
 <body>	
-	<h1 class="b"><center> [優し単語]　 </center></h1>
-	<c:if test="${not empty sessionScope.loginId }">
-	    <h1>${sessionScope.loginId }님 환영합니다!</h1>
-	</c:if>
 
-	<hr style="border: solid 5px blue;">
-
-	<h2 class="a">
-
-		<h2> JLPT 등급별 퀴즈풀기 </h2>
-
-		<c:choose>
-		    <c:when test="${not empty sessionScope.loginId }">
-		        <button onclick="location.href='/member/logout'">로그아웃</button>
-		        <button onclick="location.href='/member/quizMain'">퀴즈 페이지</button>
-		    </c:when>
-		    <c:otherwise>
-		       <form action="/member/login" method="post" id="login" onsubmit="return formCheck()">
-				ID : <input type = "text" name="id" id="member_id" placeholder="4글자 이상 10글자 이하" maxlength="11"><br>
-				PW : <input type = "password" name="pw" id="member_pw" placeholder="5글자 이상 10글자 이하" maxlength="11"><br>
-				</form>
-				<button type="submit" form="login">로그인</button>
-				<button onclick="location.href='/member/joinForm'">회원가입</button>
-		    </c:otherwise>
-		</c:choose>
-	</h2>
-	<br>
-	<br>
-	<form action="/searchTango">
-	    <input type = "submit" value="검색 페이지 이동">
-	</form>
-
-		<h2> JLPT 등급별 퀴즈풀기 </h2>
-
-		<h3>
-			<input type ="radio" name ="rd"> JLPT1
-			<input type ="radio" name ="rd"> JLPT2
-			<input type ="radio" name ="rd"> JLPT3
-			<input type ="radio" name ="rd"> JLPT4
-			<input type ="radio" name ="rd"> JLPT5
-		 </h3>
-
-	<br> 
-		<button onclick ="location.href='/JungWooPage'">번역하기 </button>
+<!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">[優し単語]</a>
+      
+      <div id="top_login">
+      <c:choose>
+      	<c:when test="${not empty sessionScope.loginId }">
+	    	<div class="btn"><b>${sessionScope.loginId }님 환영합니다!</b></div>
+	    	&nbsp;&nbsp;
+	    	<a class="btn btn-primary" href="/member/logout">Logout</a>
+		</c:when>
+		<c:otherwise>		
+	      <a class="btn btn-primary" href="/loginPage">login</a>
+	      &nbsp;&nbsp;
+		  <a class="btn btn-primary" href="/member/joinForm">회원가입</a> 
+		</c:otherwise>
+      </c:choose>
+      </div>
+    </div>
+  </nav>
+  
+  
 	
-	<br>
-		<button onclick ="location.href='/seeWordList'">나의 단어장</button>
+	
+	
+	<!-- Masthead -->
+  <header>
+    <div style="height:160px">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">
+			
+		</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form action="/searchResult" onsubmit="return KoCheck();">
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="text" id="lang" name="lang" class="form-control form-control-lg" placeholder="enter word">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" id="send_text" class="btn btn-primary" style="height:50px; width:70px">검색</button>
+                 <div onclick="speech_to_text();" class="btn btn-primary" style="height:50px; width:70px"><img width="40" height="40"  src="/resources/Image/misc.png"></div>
+            		<input type="hidden" id="langCheck" name="langCheck">
+            		<input type="hidden" id="selectLang" value="jp">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+  
+  
+  
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div style="height:130px">
+            <div class="features-icons-icon d-flex">
+              <i class="m-auto text-primary" ><img width="100" height="100"  src="/resources/Image/translate.png"></i>
+          	</div>
+            </div>
+           <a class="btn btn-primary" href="/JungWooPage">번역하기</a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div style="height:130px">
+            <div class="features-icons-icon d-flex">
+              <i class="m-auto text-primary"><img width="100" height="100"  src="/resources/Image/quiz.png"></i>
+              
+            </div>    
+          </div>
+            <a class="btn btn-primary" href="/member/quizMain">퀴즈 풀기</a>
+            
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div style="height:130px">
+            <div class="features-icons-icon d-flex">
+              <i class="m-auto text-primary"><img width="100" height="100"  src="/resources/Image/note.png"></i>
+            </div>
+            </div>
+          <a class="btn btn-primary" href="/seeWordList">나의 단어장</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 		
 </body>
 </html>
