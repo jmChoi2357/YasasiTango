@@ -17,7 +17,6 @@ public class TangoDAO {
 	public TangoVO tangoResultKO(String searchWord, String langCheck) {
 		TangoMapper mapper = session.getMapper(TangoMapper.class);
 		TangoVO tango = null;
-		System.out.println("언어체크: " + langCheck);
 		try {
 			if(langCheck.equals("ko")) {
 				tango = mapper.tangoResultKO(searchWord);
@@ -27,6 +26,7 @@ public class TangoDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(tango);
 		return tango;
 	}
 	

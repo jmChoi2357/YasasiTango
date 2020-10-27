@@ -144,6 +144,11 @@ public static void detectText() throws IOException {
 	          result += annotation.getDescription();
 	        }
 	        System.out.println("결과: " + result);
+	        
+	        String[] change_target = result.split("\\n");
+	        
+	        result = change_target[change_target.length -1];
+	        
 	      }
 	    }
 	    return result;

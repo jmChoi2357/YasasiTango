@@ -42,7 +42,6 @@
     }
 
     function text_to_speech(){
-        alert($("#result_text").val());
        	var test = {"voice": $("#result_text").val(),
        			     "code": "ko"};
        	$.ajax({

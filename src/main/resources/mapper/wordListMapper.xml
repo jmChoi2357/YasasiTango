@@ -24,7 +24,7 @@
 			and a.word_level = #{searchWord}
 			<!--회원가입 기능 완성되면세션에서 모델에넣고 가져오세요  -->
 	        
-		</if>    
+		</if>
 		order by searched_date desc
 		
 	</select>

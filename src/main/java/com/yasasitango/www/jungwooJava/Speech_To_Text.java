@@ -102,7 +102,7 @@ public class Speech_To_Text {
 		      long estimatedTime = System.currentTimeMillis() - startTime;
 		      byte[] data = new byte[6400];
 		      audio.read(data);
-		      if (estimatedTime > 10000) { // 10 seconds
+		      if (estimatedTime > 5000) { // 5 seconds
 		        System.out.println("Stop speaking.");
 		        targetDataLine.stop();
 		        targetDataLine.close();
