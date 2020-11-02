@@ -40,7 +40,7 @@
 
 </head>
 <body>
-    <h1 align="center">優し単語</h1>
+    <h1 align="center">優しい単語</h1>
     <hr style="border: solid 5px blue;">
     
     <form action="/searchResult" align="center"  onsubmit="return KoCheck();">

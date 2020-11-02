@@ -121,7 +121,7 @@
 <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="/">[優し単語]</a>
+      <a class="navbar-brand" href="/">[優しい単語]</a>
       
       <div id="top_login">
       <c:choose>
